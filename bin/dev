@@ -1,8 +1,35 @@
 #!/usr/bin/env sh
 
+check_bundle () {
+	echo "Checking ruby deps..." &
+	wait
+	bundle install &
+	wait
+	echo "all ruby deps up to date!"
+}
+
+check_yarn () {
+	echo "Checking js deps..." &
+	wait
+	yarn install &
+	wait
+	echo "all yarn pkgs up to date!"
+}
+
+check_deps () {
+	check_bundle &
+	wait
+	check_yarn &
+	wait
+	echo "all deps up to date!"
+}
+
+
 if ! gem list foreman -i --silent; then
   echo "Installing foreman..."
   gem install foreman
 fi
+
+check_deps
 
 exec foreman start -f Procfile.dev "$@"
