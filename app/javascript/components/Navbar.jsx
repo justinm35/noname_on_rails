@@ -23,7 +23,9 @@ const Navbar = () => {
             </div>
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between mt-2">
               <div class="flex flex-shrink-0 items-center">
-                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"/>
+              <NavLink to="/" >
+                <img class="h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=white" alt="Your Company"/>
+              </NavLink>
               </div>
               <div class="hidden sm:ml-6 sm:block">
                 <div class="flex space-x-4">

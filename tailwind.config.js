@@ -5,5 +5,11 @@ module.exports = {
     './app/assets/stylesheets/**/*.css',
     './app/javascript/**/*.js',
     './app/javascript/**/*.jsx'
-  ]
+  ],
+  theme: {
+    fontFamily: {
+      'poppins': ['Poppins', 'serif'],
+      'opensans': ['"Open Sans"', 'sans']
+    }
+  }
 }
