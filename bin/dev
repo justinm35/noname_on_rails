@@ -16,12 +16,24 @@ check_yarn () {
 	echo "all yarn pkgs up to date!"
 }
 
+run_migrations() {
+	echo "checking for pending migrations..." &
+	wait
+	bin/rails db:migrate &
+	wait
+	echo "database up to date!"
+}
+
 check_deps () {
 	check_bundle &
 	wait
 	check_yarn &
 	wait
-	echo "all deps up to date!"
+	run_migrations &
+	wait
+	echo " 😃 😃 😃 😃 😃 😃"
+	echo "everything up to date!"
+	echo " 😃 😃 😃 😃 😃 😃"
 }
 
 
