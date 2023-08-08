@@ -3,9 +3,7 @@
 
 default: &default
   source_path: app/javascript
-  extensions:
-    - .js
-    - .jsx
+
   # You can have a subdirectory of the source_path, like 'packs' (recommended).
   # Alternatively, you can use '/' to use the whole source_path directory.
   # Notice that this is a relative path to source_path
@@ -54,7 +52,7 @@ default: &default
 
 development:
   <<: *default
-  compile: false
+  compile: true
   compiler_strategy: mtime
 
   # Reference: https://webpack.js.org/configuration/dev-server/

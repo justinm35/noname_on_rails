@@ -6,14 +6,16 @@ class RegistrationController < ApplicationController
   def create
     @user = User.new(user_params) #Inuts the Params User hash directly, validates using user_params function
     if @user.save
-      redirect_to root_path, notice: "Successfully made a new account"
+      render json: @user, status: :created
+    else
+      render json: @user.errors, status: :unprocessable_entity
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:full_name, :email,:username, :password, :password_confirmation)
   end
 
 end
