@@ -3,7 +3,7 @@ import Navbar from "../Navbar";
 import { Outlet } from "react-router-dom";
 
 export default () => (
-  <div class="w-full h-full">
+  <div className="w-full h-full">
     <Navbar/>
     <Outlet/>
   </div>
