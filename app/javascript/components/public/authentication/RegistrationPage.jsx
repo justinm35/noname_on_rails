@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 const RegistrationPage = () => {
     const navigate = useNavigate();
@@ -85,7 +85,7 @@ const RegistrationPage = () => {
                         <input name="password_confirmation" onChange={handleChange} className="pl-2 outline-none border-none" type="text" placeholder="Confirm Password" />
                     </div>
                     <button type="submit" className="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2">Register</button>
-                    <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">Already Have an Account?</span>
+                    <Link to="/signin"><span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">Already Have an Account?</span></Link>
                 </form>
             </div>
         </div>

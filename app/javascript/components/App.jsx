@@ -3,7 +3,6 @@ import Routes from "../routes";
 
 export default props => (
     <>
-    <ToastContainer/>
     {Routes}
     </>
 );

@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   # resources
-  resources 'resources', only: [:index, :show, :create, :update]
+  resources 'resources', only: [:show, :create, :update]
+
+  match '*path', to: 'homepage#index', via: :all
 end
