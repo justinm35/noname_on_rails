@@ -1,24 +1,30 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
+import { CurrentUserContext } from "../../App";
 
 const SignInPage = () => {
     const navigate = useNavigate();
-    const [registrationFormData, setRegistrationFormData] = useState(
-        {email: '',password: '',})
+    const [ signInFormData, setSignInFormData ] = useState({ email: '', password: '' })
+    const { currentUser, setCurrentUser } = useContext(CurrentUserContext)
+
 
     const handleChange = (e) => {
-        setRegistrationFormData({...registrationFormData, [e.target.name] : e.target.value})
+        setSignInFormData({...signInFormData, [e.target.name] : e.target.value})
     }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         //Rails embeds a CSRF token in the meta tags, we access that and send it in our request so rails
         //back end can confirm the legitimacy
         const token = document.querySelector('[name=csrf-token]').content
         axios.defaults.headers.common['X-CSRF-TOKEN'] = token
-        axios.post('api/v1/sessions', {user: registrationFormData})
-        .then((res)=>{console.log(res); return navigate('/')})
-        .catch((err)=> {toast.error('UH OH')})
+        axios.post('api/v1/sessions', {user: signInFormData})
+            .then((res)=>{
+                setCurrentUser(res.data.user)
+                return navigate('/resources')
+            })
+            .catch((err)=> {toast.error('UH OH')})
     }
     return (
         <div className="absolute bottom-0 top-0 left-0 right-0 md:flex -z-10 font-opensans">

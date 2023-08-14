@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources 'registration', only: [:create, :index]
       resources 'resources', only: [:show, :create, :update]
       resources 'sessions', only: [:create, :destroy]
+      get 'sessions/authenticate', to: "sessions#authenticate"
     end
   end
 

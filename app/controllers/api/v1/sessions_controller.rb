@@ -19,4 +19,13 @@ class Api::V1::SessionsController < ApplicationController
   def destroy
 
   end
+
+  def authenticate
+    puts 'Authenticatino endpoint hit'
+    if user_signed_in?
+      render json: { status: 'success', user: Current.user }, status: :ok
+    else
+      render json: { status: 'error', message: 'Session invalid' }, status: :unauthorized
+    end
+  end
 end

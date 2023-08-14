@@ -15,6 +15,7 @@ export default (
         <Route path="/signin" element={<SignInPage/>}/>
       </Route>
 			<Route path="/resources" element={<Resources/>}>
+
 			</Route>
     </Routes>
   </Router>
