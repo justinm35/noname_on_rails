@@ -5,12 +5,7 @@ import { Link, useNavigate } from "react-router-dom"
 const SignInPage = () => {
     const navigate = useNavigate();
     const [registrationFormData, setRegistrationFormData] = useState(
-        {
-        full_name: '',
-        username: '',
-        email: '',
-        password: '',
-        password_confirmation: ''})
+        {email: '',password: '',})
 
     const handleChange = (e) => {
         setRegistrationFormData({...registrationFormData, [e.target.name] : e.target.value})
@@ -21,7 +16,7 @@ const SignInPage = () => {
         //back end can confirm the legitimacy
         const token = document.querySelector('[name=csrf-token]').content
         axios.defaults.headers.common['X-CSRF-TOKEN'] = token
-        axios.post('registration', {user: registrationFormData})
+        axios.post('api/v1/sessions', {user: registrationFormData})
         .then((res)=>{console.log(res); return navigate('/')})
         .catch((err)=> {toast.error('UH OH')})
     }

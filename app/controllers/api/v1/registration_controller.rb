@@ -1,4 +1,4 @@
-class RegistrationController < ApplicationController
+class Api::V1::RegistrationController < ApplicationController
 
   def index
   end

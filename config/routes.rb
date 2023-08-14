@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  namespace :api do
+    namespace :v1 do
+      resources 'registration', only: [:create, :index]
+      resources 'resources', only: [:show, :create, :update]
+      resources 'sessions', only: [:create, :destroy]
+    end
+  end
+
   root 'homepage#index'
-  # Defines the root path route ("/")
-  resources 'registration', only: [:create, :index]
-  # root "articles#index"
-
-  # resources
-  resources 'resources', only: [:show, :create, :update]
-
   match '*path', to: 'homepage#index', via: :all
 end

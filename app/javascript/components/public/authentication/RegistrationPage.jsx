@@ -21,7 +21,7 @@ const RegistrationPage = () => {
         //back end can confirm the legitimacy
         const token = document.querySelector('[name=csrf-token]').content
         axios.defaults.headers.common['X-CSRF-TOKEN'] = token
-        axios.post('registration', {user: registrationFormData})
+        axios.post('api/v1/registration', {user: registrationFormData})
         .then((res)=>{console.log(res); return navigate('/')})
         .catch((err)=> {toast.error('UH OH')})
     }
