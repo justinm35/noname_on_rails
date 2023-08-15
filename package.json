@@ -7,14 +7,18 @@
     "axios": "^1.4.0",
     "esbuild": "^0.18.17",
     "postcss": "^8.4.27",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",
+    "react-toastify": "^9.1.3",
     "tailwindcss": "^3.3.3"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets --loader:.png=file --loader:.js=jsx",
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
+    "build:fakecss": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify",
+    "build:css": "postcss ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css"
   },
   "packageManager": "yarn@3.6.1"
 }

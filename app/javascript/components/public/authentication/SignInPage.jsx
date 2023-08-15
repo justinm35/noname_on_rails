@@ -8,7 +8,6 @@ const SignInPage = () => {
     const [ signInFormData, setSignInFormData ] = useState({ email: '', password: '' })
     const { currentUser, setCurrentUser } = useContext(CurrentUserContext)
 
-
     const handleChange = (e) => {
         setSignInFormData({...signInFormData, [e.target.name] : e.target.value})
     }

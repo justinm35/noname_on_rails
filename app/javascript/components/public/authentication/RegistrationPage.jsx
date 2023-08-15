@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
+import { toast } from "react-toastify";
 
 const RegistrationPage = () => {
     const navigate = useNavigate();
@@ -22,8 +23,8 @@ const RegistrationPage = () => {
         const token = document.querySelector('[name=csrf-token]').content
         axios.defaults.headers.common['X-CSRF-TOKEN'] = token
         axios.post('api/v1/registration', {user: registrationFormData})
-        .then((res)=>{console.log(res); return navigate('/')})
-        .catch((err)=> {toast.error('UH OH')})
+        .then((res)=>{toast.success('Congratulations, now Signin!'); return navigate('/signin')})
+        .catch((err)=> {toast.error(`Error: ${JSON.stringify(err)}`)})
     }
     return (
         <div className="absolute bottom-0 top-0 left-0 right-0 md:flex -z-10 font-opensans">

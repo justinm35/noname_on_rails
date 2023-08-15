@@ -13,7 +13,7 @@ export default () => {
 		}else{
 			axios.get('api/v1/sessions/authenticate')
 				.then((res)=>{
-					setCurrentUser({ id: res.data.user.id, email: res.data.user.email})
+					setCurrentUser({ id: res.data.user?.id, email: res.data.user?.email})
 				})
 				.catch((err)=>{
 					navigate('/signin')
@@ -22,9 +22,11 @@ export default () => {
 		}
 	},[])
 	return(
-		<div className="w-full h-full">
+		<div className="w-full h-screen flex">
 			<Sidebar />
-			<Outlet />
+			<div className="w-full h-full px-12 py-8">
+				<Outlet />
+			</div>
 		</div>
 	)
 }
