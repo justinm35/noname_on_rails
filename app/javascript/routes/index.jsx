@@ -17,7 +17,7 @@ export default (
       </Route>
 
       <Route path="resources" element={<Resources/>}>
-        <Route index element={<p>Yes</p>} />
+        <Route index element={<SchedulePage/>} />
         <Route path="schedule" element={<p>Schedule</p>}/>
       </Route>
 

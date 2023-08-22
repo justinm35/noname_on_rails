@@ -5,9 +5,8 @@ const Sidebar = () => {
 	const [toggleWideSidebar, setToggleWideSidebar] = useState(true)
 
  return (
-	<>
-	{/* <!-- Component Start --> */}
-	<div className={`asbsolute relative flex flex-col items-center h-full text-gray-700 bg-gray-100 rounded transition-all ${toggleWideSidebar ? 'w-16' : 'w-48' }`}>
+	<div className="absolute h-full">
+	<div className={`relative flex flex-col items-center h-full text-gray-700 bg-gray-100 rounded transition-all ${toggleWideSidebar ? 'w-16' : 'w-48' }`}>
 		<div className="w-10 h-10 bg-gray-100 absolute -right-10 top-2 rounded-r-md flex items-center justify-center">
 			<button onClick={()=>setToggleWideSidebar(!toggleWideSidebar)}>
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className={`transition ${toggleWideSidebar ? '-rotate-90' : 'rotate-90'}`}>
@@ -79,8 +78,7 @@ const Sidebar = () => {
 			<span className={`ml-2 text-sm font-medium transition-all ${toggleWideSidebar && 'hidden'}`}>Account</span>
 		</NavLink>
 	</div>
-	{/* <!-- Component End  --> */}
-	</>
+	</div>
  )
 }
 
