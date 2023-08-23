@@ -6,6 +6,7 @@ import RegistrationPage from "../components/public/authentication/RegistrationPa
 import SignInPage from "../components/public/authentication/SignInPage";
 import Resources from "../components/resources/Resources";
 import SchedulePage from "../components/resources/SchedulePage";
+import ChatPage from "../components/resources/chat/ChatPage";
 
 export default (
   <Router>
@@ -18,7 +19,7 @@ export default (
 
       <Route path="resources" element={<Resources/>}>
         <Route index element={<SchedulePage/>} />
-        <Route path="schedule" element={<p>Schedule</p>}/>
+        <Route path="chat" element={<ChatPage/>}/>
       </Route>
 
     </Routes>

@@ -15,7 +15,8 @@ export default SchedulePage = () => {
 const date = new Date(2023, 8, 20)
 const daysArray = generateDaysInMonth(date)
 
-
+    const blockStartDate = "2023/08/10"
+    const blockEndDate = "2023/08/15"
     return(
         <div className="flex h-full p-10">
             <div className="h-11/12 flex">
@@ -31,7 +32,9 @@ const daysArray = generateDaysInMonth(date)
                     </ul>
                 </div>
             <div className="overflow-auto flex h-full">
+
             {daysArray.map((day) => {
+                // https://github.com/react-grid-layout/react-resizable
                 return(
                     <div key={JSON.stringify(day)} className="h-full">
                         <div className="text-neutral-400 text-[10px] font-poppins font-medium text-center">
