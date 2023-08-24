@@ -4,7 +4,8 @@ class Api::V1::RegistrationController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params) #Inuts the Params User hash directly, validates using user_params function
+    account = add_new_account(user_params[:username])
+    @user = account.users.new(user_params) #Inuts the Params User hash directly, validates using user_params function
     if @user.save
       render json: @user, status: :created
     else
@@ -18,4 +19,7 @@ class Api::V1::RegistrationController < ApplicationController
     params.require(:user).permit(:full_name, :email,:username, :password, :password_confirmation)
   end
 
+  def add_new_account(username)
+    return Account.create(company_name: "intro-account-#{username}")
+  end
 end

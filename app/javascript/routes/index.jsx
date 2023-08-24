@@ -5,7 +5,7 @@ import HomePage from "../components/public/homepage/HomePage";
 import RegistrationPage from "../components/public/authentication/RegistrationPage";
 import SignInPage from "../components/public/authentication/SignInPage";
 import Resources from "../components/resources/Resources";
-import SchedulePage from "../components/resources/SchedulePage";
+import SchedulePage from "../components/resources/schedule/SchedulePage";
 import ChatPage from "../components/resources/chat/ChatPage";
 
 export default (
