@@ -30,7 +30,7 @@ const Navbar = () => {
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
                   {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
-                  <NavLink to="/" >
+                  <NavLink to="/resources" >
                     {({isActive, isPending})=>(
                       <div className={`${isActive ? "bg-[#4E5B9E] text-white" : "text-gray-800 hover:bg-gray-200"} " rounded-md px-3 py-2 text-sm font-medium"`}>Welcome</div>
                     )}

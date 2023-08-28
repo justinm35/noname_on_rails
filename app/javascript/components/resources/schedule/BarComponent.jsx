@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Draggable from 'react-draggable';
 
-export default SchedulePage = ({colour}) => {
+export default SchedulePage = ({colour, spacingLeft, duration}) => {
     // onStop = () => {
     //     this.setState({activeDrags: --this.state.activeDrags});
     //   };
@@ -14,12 +14,12 @@ export default SchedulePage = ({colour}) => {
     //     this.onStop();
     //   };
     // onStop={this.onControlledDragStop}
-    console.log(colour)
     const blockColour = "bg-[" + colour + "]"
-    console.log(blockColour)
-    return(
+
+    return(//bg-[#e66767] or bg-[#786fa6]
         <Draggable axis="x" grid={[20, 20]} >
-            <div className={`left-0 top-0 z-50 absolute w-60 h-20 rounded-md ${blockColour} bg-[#786fa6]`}/>
+            {/* <div style={{marginLeft: spacingLeft}}/> */}
+            <div style={{marginLeft: spacingLeft, width: duration}} className={`left-0 top-0 z-50 absolute h-20 rounded-md ${blockColour}`}/>
         </Draggable>
     )
 }

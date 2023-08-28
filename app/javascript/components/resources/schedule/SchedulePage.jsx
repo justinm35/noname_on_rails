@@ -1,4 +1,4 @@
-import { eachDayOfInterval, endOfMonth, format, startOfMonth } from 'date-fns';
+import { differenceInDays, eachDayOfInterval, endOfMonth, format, startOfMonth } from 'date-fns';
 import React, { useState } from 'react'
 import Draggable from 'react-draggable';
 import BarComponent from './BarComponent';
@@ -36,6 +36,8 @@ onStart = () => {
     const blockStartDate = new Date("2023/09/10")
     const blockEndDate = new Date("2023/09/15")
     const dragHandlers = {onStart: onStart, onStop: onStop};
+    const allBookings = [{startDate: new Date("2023/09/10"), endDate: new Date("2023/09/15")},
+                        {startDate: new Date("2023/09/20"), endDate: new Date("2023/09/23")}]
     return(
         <div className="flex h-full p-10">
                 <div className="h-11/12 flex">
@@ -54,10 +56,18 @@ onStart = () => {
                 {/* Plots the bars */}
                 <div className="absolute h-5/6 w-full top-0 left-0 ">
                     <ul className="">
-                        <li className="h-10 relative"></li>
+                        <li className="h-10 relative">
+
+                        </li>
                         <li className="h-20 my-4 relative">
-                            <BarComponent colour="#786fa6"/>
-                            <BarComponent colour="#786fa6"/>
+                            {/* map the bars */}
+                            {allBookings.map((booking) => {
+                                const distanceToStart = differenceInDays(booking.startDate, daysArray[0])
+                                const numberOfDays = differenceInDays(booking.endDate, booking.startDate) + 1
+                                return (
+                                    <BarComponent key={distanceToStart} style="background-color:red" colour="#786fa6" duration={numberOfDays * 80} spacingLeft={distanceToStart * 80}/>
+                                    )
+                            })}
                         </li>
                         <li className="h-20 my-4 relative">
                             <BarComponent colour="#e66767"/>
